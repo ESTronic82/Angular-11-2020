@@ -1,0 +1,20 @@
+<a routerLink="/">Tagasi avalehele...</a>
+<br><br>
+<form (ngSubmit)="onSubmit(inimeseLisamiseVorm)" #inimeseLisamiseVorm="ngForm">
+    <label>Eesnimi</label>
+    <input ngModel name="firstName" type="text" minglength="2" required>
+    <span *ngIf="inimeseLisamiseVorm.firstName.errors">Eesnimi on nõutud!</span>
+    <label>Perenimi</label>
+    <input ngModel name="lastName" type="text" minglength="2" required>
+    <label>Vanus</label>
+    <input ngModel name="age" type="number" minglength="1" required>
+    <label>Aadress</label>
+    <input ngModel name="address" type="text" minglength="2" required>
+    <button [disabled]="inimeseLisamiseVorm.invalid" type="submit">Lisa inimene</button>
+</form>
+<div *ngIf="inimeseLisamiseVorm.valid">Vorm on korrektne!</div>
+<!-- [] property binding
+HTML atribuut läheb dünaamiliseks 
+alati peab PAREMAL pool olema funktsioon / ja muutuja / 
+kui ümarad sulud siis PAREMAL -->
+<!--  -->
